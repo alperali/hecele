@@ -3,8 +3,9 @@
 Bu proje, sözlük veri tabanı gerektirmeyen, algoritmik bir heceleme yönteminin anlatımı ve uygulamasıdır.[^1]
 
 ## Giriş
-Basit ve yalın bir morfolojik yapısı olan Türkçede heceleme (*hyphenation*) Hint-Avrupa dillerindekinden çok farklıdır. O dillere göre tasarlanmış yazılım ve/veya kütüphanelere Türkçeyi eklemeye çalışmak yerine özgün ve rasyonel bir yaklaşım mümkündür. Türkçe heceleme deterministiktir, sade ve açık kurallar ile formüle edilebilir. Bitişken (*agglutinative*) bir dil olan Türkçede teorik olarak sözcük uzunluğunun bir üst sınırının olmaması,
-sözlük veri tabanı kullanımını (*dictionary lookup*) anlamsız kılar.
+Basit ve yalın bir morfolojik yapısı olan Türkçede heceleme (*hyphenation*) Hint-Avrupa dillerindekinden farklıdır.
+Bitişken (*agglutinative*) bir dil olan Türkçede teorik olarak sözcük uzunluğunun bir üst sınırının olmaması, sözlük veri tabanı kullanımını (*dictionary lookup*) anlamsız kılar.
+O dillere göre tasarlanmış yazılım ve/veya kütüphanelere Türkçeyi eklemeye çalışmak yerine özgün ve rasyonel bir yaklaşım mümkündür. Türkçe heceleme deterministiktir, sade ve açık kurallar ile formüle edilebilir.
 
 ## Bulgular
 Türkçe üzerine birinci bulgu:
@@ -178,7 +179,7 @@ Kolaylık sağlaması için sözcükte noktalama imleri ve rakamlar olmadığı 
      </tr>
    </table>
 
-9. **Sözcük ünsüz-ünlü-ünsüz-ünsüz olarak başlıyorsa ilk hece 4 harftir.**
+9. **Sözcük ünsüz-ünsüz-ünlü-ünsüz olarak başlıyorsa ilk hece 4 harftir.**
 
    <table role="table">
      <tr>
@@ -189,10 +190,54 @@ Kolaylık sağlaması için sözcükte noktalama imleri ve rakamlar olmadığı 
      </tr>
      <tr></tr> <!-- suppress stripe -->
      <tr>
-       <td colspan="2"><code>/^[bcçdfgğhjklmnprsştvyz][aeiouöüıİ][bcçdfgğhjklmnprsştvyz]{2}/i</code></td>
+       <td colspan="2"><code>/^[bcçdfgğhjklmnprsştvyz]{2}[aeiouöüıİ][bcçdfgğhjklmnprsştvyz]/i</code></td>
      </tr>
    </table>
+
+## Kullanım ve Uygulama
+Bu çalışma standart web teknolojilerini baz almaktadır (gerekirse şirkete/markaya özel teknolojilere uyarlanabilir).
+Bu bağlamda CSS *hyphens property* odaklı bir uygulama yapılmıştır.[^3]
+Elektronik belgelerin düzgün gösterimi (satır sonu doğru yerde bölme) için tire olarak U+00AD (soft hyphen) karakteri, tüm hecelerin açıkça gösterimi için tire olarak U+2010 (hard hyphen) kullanılmaktadır.
+Yukarıda bahsedilen 9 kurala göre heceleme yapan ve tire türünü (*soft* veya *hard*) argüman olarak alabilen örnek bir Javascript modülü aşağıda gösterilmiştir.
+
+```javascript
+const SHY = '\u00AD';  // soft hyphen
+const HRD = '\u2010';  // hard hyphen
+const kurallar = [
+  { ptn: /^[aeiouöüıİ][bcçdfgğhjklmnprsştvyz][aeiouöüıİ]/i,    len: 1}, // 2.
+  { ptn: /^[bcçdfgğhjklmnprsştvyz][aeiouöüıİ]{2}/i,            len: 2}, // 3.
+  { ptn: /^[aeiouöüıİ][bcçdfgğhjklmnprsştvyz]{2}[aeiouöüıİ]/i, len: 2}, // 4.
+  { ptn: /^([bcçdfgğhjklmnprsştvyz][aeiouöüıİ]){2}/i,          len: 2}, // 5.
+  { ptn: /^[aeiouöüıİ][bcçdfgğhjklmnprsştvyz]{2}($\|[bcçdfgğhjklmnprsştvyz])/i, len: 3}, // 6.
+  { ptn: /^[bcçdfgğhjklmnprsştvyz][aeiouöüıİ][bcçdfgğhjklmnprsştvyz]($\|[bcçdfgğhjklmnprsştvyz][aeiouöüıİ])/i, len: 3},  // 7.
+  { ptn: /^[bcçdfgğhjklmnprsştvyz][aeiouöüıİ][bcçdfgğhjklmnprsştvyz]{2}($\|[bcçdfgğhjklmnprsştvyz])/i, len: 4},          // 8.
+  { ptn: /^[bcçdfgğhjklmnprsştvyz]{2}[aeiouöüıİ][bcçdfgğhjklmnprsştvyz]/i, len: 4}       // 9.
+];
+
+function hecele(szck, tire = SHY)
+{
+  if (szck.length < 3)        // 1.
+    return szck;
+
+  for (const kural of kurallar)
+    if (kural.ptn.test(szck))
+      if (szck.length > kural.len)
+        return `${szck.slice(0, kural.len)}${tire}${hecele(szck.slice(kural.len))}`;
+      else
+        return szck;
+    
+  return szck;   // hiçbiri uymadı, aynen döndür.
+}
+
+const hecele.SHY = SHY;
+const hecele.HRD = HRD;
+
+export default hecele;
+```
+
 
 [^1]: Bu anlatım [2016’da yapılmış bir çalışmaya](https://github.com/alperali/jsders/blob/6fe279dcfe836bf6c98fd04a6403281414f4d57f/hecele.js) dayanmaktadır.
 
 [^2]: Örüntüler standart Javascript RegEx nesnesini baz alır. Sistem *locale* ayarlarına göre değişkenlik gösterdiği için *character class* ve *range* kullanımı tercih edilmemiştir.
+
+[^3]: https://developer.mozilla.org/en-US/docs/Web/CSS/hyphens
