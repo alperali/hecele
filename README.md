@@ -208,9 +208,9 @@ const kurallar = [
   { ptn: /^[bcçdfgğhjklmnprsştvyz][aeiouöüıİ]{2}/i,            len: 2}, // 3.
   { ptn: /^[aeiouöüıİ][bcçdfgğhjklmnprsştvyz]{2}[aeiouöüıİ]/i, len: 2}, // 4.
   { ptn: /^([bcçdfgğhjklmnprsştvyz][aeiouöüıİ]){2}/i,          len: 2}, // 5.
-  { ptn: /^[aeiouöüıİ][bcçdfgğhjklmnprsştvyz]{2}($\|[bcçdfgğhjklmnprsştvyz])/i, len: 3}, // 6.
-  { ptn: /^[bcçdfgğhjklmnprsştvyz][aeiouöüıİ][bcçdfgğhjklmnprsştvyz]($\|[bcçdfgğhjklmnprsştvyz][aeiouöüıİ])/i, len: 3},  // 7.
-  { ptn: /^[bcçdfgğhjklmnprsştvyz][aeiouöüıİ][bcçdfgğhjklmnprsştvyz]{2}($\|[bcçdfgğhjklmnprsştvyz])/i, len: 4},          // 8.
+  { ptn: /^[aeiouöüıİ][bcçdfgğhjklmnprsştvyz]{2}($|[bcçdfgğhjklmnprsştvyz])/i, len: 3}, // 6.
+  { ptn: /^[bcçdfgğhjklmnprsştvyz][aeiouöüıİ][bcçdfgğhjklmnprsştvyz]($|[bcçdfgğhjklmnprsştvyz][aeiouöüıİ])/i, len: 3},  // 7.
+  { ptn: /^[bcçdfgğhjklmnprsştvyz][aeiouöüıİ][bcçdfgğhjklmnprsştvyz]{2}($|[bcçdfgğhjklmnprsştvyz])/i, len: 4},          // 8.
   { ptn: /^[bcçdfgğhjklmnprsştvyz]{2}[aeiouöüıİ][bcçdfgğhjklmnprsştvyz]/i, len: 4}       // 9.
 ];
 
@@ -229,8 +229,8 @@ function hecele(szck, tire = SHY)
   return szck;   // hiçbiri uymadı, aynen döndür.
 }
 
-const hecele.SHY = SHY;
-const hecele.HRD = HRD;
+Object.defineProperty(hecele, 'SHY', { value: SHY});
+Object.defineProperty(hecele, 'HRD', { value: HRD});
 
 export default hecele;
 ```
