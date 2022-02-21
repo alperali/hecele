@@ -237,6 +237,27 @@ Object.defineProperty(hecele, 'HRD', { value: HRD});
 export default hecele;
 ```
 
+### Belge üzerinde kullanım
+Heceleme modülü noktalama imleri içermeyen tek sözcük üzerinde çalışmaktadır.
+Tüm bir belgenin bu modülden fayda sağlaması için noktalama imleri atlanarak sözcükler sırayla bu modüle gönderilmeli, tire yerleştirilmiş sözcükler noktalama imlerini kaybetmeden ve orjinal sırasında belge
+içerisine geri yerleştirilmelidir (veya yeni bir belge oluşturulmalıdır). Bu işlemi gösteren örnek bir
+Javascript satırı şöyle olabilir:
+
+```javascript
+const nokim = /([\s\u00AD,;:.'"’“”!?()-]+)/;  /* noktalama imleri örüntüsü */
+belge.split(nokim)
+     .map((e) => {
+        if (nokim.test(e)) return e;
+        return hecele(e, hecele.SHY);
+      })
+     .join("");
+```
+
+## Özel durumlar (birleşik sözcükler)
+---
+
+## Başarım
+
 
 [^1]: Bu anlatım [2016’da yapılmış bir çalışmaya](https://github.com/alperali/jsders/blob/6fe279dcfe836bf6c98fd04a6403281414f4d57f/hecele.js) dayanmaktadır.
 
