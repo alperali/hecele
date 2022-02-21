@@ -2,6 +2,8 @@
 # Türkçe Heceleme
 Bu proje, sözlük veri tabanı gerektirmeyen, algoritmik bir heceleme yönteminin anlatımı ve uygulamasıdır.[^1]
 
+![Demo animasyonu](./demo.gif)
+
 ## Giriş
 Basit ve yalın bir morfolojik yapısı olan Türkçede heceleme (*hyphenation*) Hint-Avrupa dillerindekinden farklıdır.
 Bitişken (*agglutinative*) bir dil olan Türkçede teorik olarak sözcük uzunluğunun bir üst sınırının olmaması, sözlük veri tabanı kullanımını (*dictionary lookup*) anlamsız kılar.
@@ -197,7 +199,7 @@ Kolaylık sağlaması için sözcükte noktalama imleri ve rakamlar olmadığı 
 ## Kullanım ve Uygulama
 Bu çalışma standart web teknolojilerini baz almaktadır (gerekirse şirkete/markaya özel teknolojilere uyarlanabilir).
 Bu bağlamda CSS *hyphens property* odaklı bir uygulama yapılmıştır.[^3]
-Elektronik belgelerin düzgün gösterimi (satır sonu doğru yerde bölme) için tire olarak U+00AD (soft hyphen) karakteri, tüm hecelerin açıkça gösterimi için tire olarak U+2010 (hard hyphen) kullanılmaktadır.
+Elektronik belgelerin düzgün gösterimi (satır sonu doğru yerde bölme) için tire olarak U+00AD (soft hyphen), tüm hecelerin açıkça gösterimi için tire olarak U+2010 (hard hyphen) kullanılmaktadır.
 Yukarıda bahsedilen 9 kurala göre heceleme yapan ve tire türünü (*soft* veya *hard*) argüman olarak alabilen örnek bir Javascript modülü aşağıda gösterilmiştir.
 
 ```javascript
@@ -222,7 +224,7 @@ function hecele(szck, tire = SHY)
   for (const kural of kurallar)
     if (kural.ptn.test(szck))
       if (szck.length > kural.len)
-        return `${szck.slice(0, kural.len)}${tire}${hecele(szck.slice(kural.len))}`;
+        return `${szck.slice(0, kural.len)}${tire}${hecele(szck.slice(kural.len), tire)}`;
       else
         return szck;
     
