@@ -143,7 +143,7 @@ Kolaylık sağlaması için sözcükte noktalama imleri ve rakamlar olmadığı 
      </tr>
      <tr></tr> <!-- suppress stripe -->
      <tr>
-       <td colspan="2"><code>/^[aeiouöüıİ][bcçdfgğhjklmnprsştvyz]{2}($\|[bcçdfgğhjklmnprsştvyz])/i</code></td>
+       <td colspan="2"><code>/^[aeiouöüıİ][bcçdfgğhjklmnprsştvyz]{2}($|[bcçdfgğhjklmnprsştvyz])/i</code></td>
      </tr>
    </table>
 
@@ -159,7 +159,7 @@ Kolaylık sağlaması için sözcükte noktalama imleri ve rakamlar olmadığı 
      </tr>
      <tr></tr> <!-- suppress stripe -->     
      <tr>
-       <td colspan="2"><code>/^[bcçdfgğhjklmnprsştvyz][aeiouöüıİ][bcçdfgğhjklmnprsştvyz]($\|[bcçdfgğhjklmnprsştvyz][aeiouöüıİ])/i</code></td>
+       <td colspan="2"><code>/^[bcçdfgğhjklmnprsştvyz][aeiouöüıİ][bcçdfgğhjklmnprsştvyz]($|[bcçdfgğhjklmnprsştvyz][aeiouöüıİ])/i</code></td>
      </tr>
    </table>
 
@@ -175,7 +175,7 @@ Kolaylık sağlaması için sözcükte noktalama imleri ve rakamlar olmadığı 
      </tr>
      <tr></tr> <!-- suppress stripe -->     
      <tr>
-       <td colspan="2"><code>/^[bcçdfgğhjklmnprsştvyz][aeiouöüıİ][bcçdfgğhjklmnprsştvyz]{2}($\|[bcçdfgğhjklmnprsştvyz])/i</code></td>
+       <td colspan="2"><code>/^[bcçdfgğhjklmnprsştvyz][aeiouöüıİ][bcçdfgğhjklmnprsştvyz]{2}($|[bcçdfgğhjklmnprsştvyz])/i</code></td>
      </tr>
    </table>
 
@@ -186,7 +186,7 @@ Kolaylık sağlaması için sözcükte noktalama imleri ve rakamlar olmadığı 
        <td>
          <em>prog-ram-cı<br />Trak-ya<br />spor<br />tren<br />sant-ral<br />kral-i-çe<br 7>tren-e</em>
        </td>
-       <td> zNzz :4 </td>
+       <td> zzNz :4 </td>
      </tr>
      <tr></tr> <!-- suppress stripe -->
      <tr>
