@@ -199,12 +199,13 @@ Kolaylık sağlaması için sözcükte noktalama imleri ve rakamlar olmadığı 
 ## Kullanım ve Uygulama
 Bu çalışma standart web teknolojilerini baz almaktadır (gerekirse şirkete/markaya özel teknolojilere uyarlanabilir).
 Bu bağlamda CSS *hyphens property* odaklı bir uygulama yapılmıştır.[^3]
-Elektronik belgelerin düzgün gösterimi (satır sonu doğru yerde bölme) için tire olarak U+00AD (soft hyphen), tüm hecelerin açıkça gösterimi için tire olarak U+2010 (hard hyphen) kullanılmaktadır.
-Yukarıda bahsedilen 9 kurala göre heceleme yapan ve tire türünü (*soft* veya *hard*) argüman olarak alabilen örnek bir Javascript modülü aşağıda gösterilmiştir.
+Elektronik belgelerin düzgün gösterimi (satır sonu doğru yerde bölme) için tire olarak U+00AD (gizli tire / *soft hyphen*),
+tüm hecelerin açıkça gösterimi için tire olarak U+2010 (açık tire / *hard hyphen*) kullanılmaktadır.
+Yukarıda bahsedilen 9 kurala göre heceleme yapan ve tire türünü (gizli veya açık) argüman olarak alabilen örnek bir Javascript modülü aşağıda gösterilmiştir.
 
 ```javascript
-const SHY = '\u00AD';  // soft hyphen
-const HRD = '\u2010';  // hard hyphen
+const SHY = '\u00AD';  // gizli tire (soft hyphen)
+const HRD = '\u2010';  // açık tire  (hard hyphen)
 const kurallar = [
   { ptn: /^[aeiouöüıİ][bcçdfgğhjklmnprsştvyz][aeiouöüıİ]/i,    len: 1}, // 2.
   { ptn: /^[bcçdfgğhjklmnprsştvyz][aeiouöüıİ]{2}/i,            len: 2}, // 3.
