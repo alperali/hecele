@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/pico.min.css">
+    <title>Heceleme</title>
+    <script type="module" src="./hecele.js"></script> 
+  </head>
+  <body>
+    <main class="container">
+      <h1>Türkçe Heceleme</h1>
+      <h5>Aşağıdaki metin kutusunun boyutunu değiştirerek hecelemenin satır sonlarında dinamik değişimini gözleyin.</h5>
+      <div>
+        <textarea style="hyphens: manual;" id="metin" cols="20" rows="10" readonly></textarea>
+        <p id="dene" hidden>Bu tablo karşısında Osmanlı Devleti’nin on dokuzuncu asırdan nasıl sağ çıkabildiğine insanın inanmayacağı gelir. Gerçi Abdülmecid devrinde biri 1839’da, biri 1856’da reform fermanları Hristiyanlara hukuk eşitliği vererek, bilhassa Rusya’nın elinden savaş ve imparatorluğu parçalama bahanesini almak, Avrupa sistemi okullar açarak, sivil idare kurarak, hükümete batıkari bir kuruluş vererek yeni düzen yolunda ilerlemek istemiştir. Fakat asıl davanın devletin teokratik karakterine son vermek, din ve dünya işlerini ayırmak, ticaret ve endüstri yoluna dökülmek olduğu bir türlü anlaşılamamış, kilise ve okul el birliği ile gelişen ve ilerleyen eski reaya memleket ekonomisine hakim olmuşlar, Türkler kendi ülkelerinde bu eski reayanın ve imtiyazlı yabancıların tepeden baktıkları sömürge yerlileri haline düşmüşlerdir. Reform hareketlerine rağmen, sivil okulları, hatta üniversite, şeriatçıların kontrolü altında idi. Batı’nın pençesinden kurtulmak için girişilen reformları medrese ve cami asla benimsememiş, halk yığınları da onların manevi hakimiyeti altında olduğu için, Batı medeniyetçiliği pek küçük bir azınlığın malı olmuştur. Daha yirminci yüzyıl başlarında bile ancak İstanbul, Selanik ve Beyrut gibi Frenkli ve Hristiyanlı şehirlerde kravatlı ve Avrupa giyimli Türklere raslanırdı. Taşralarda sivil ve asker idare adamları ile halk arasında fark, sömürgelerdeki koloni adamları ile yerliler arasındaki farkı andırırdı. Orduda okuma yazma bilmeyen küçük, orta ve yüksek rütbeli subaylar çoktu.
+        On dokuzuncu asrın sonlarına doğru “can çekişen” hasta adamın en zayıf yeri Makedonya’dır. Avusturya-Macaristan İmparatorluğu Selanik’e inmek, Yunanistan kuzeye, Sırbistan güneye doğru genişlemek, Bulgaristan büyümek ister. Sırp, Bulgar ve Rum çeteleri Makedonya dağlarındadır. Çarşılar onlarındır. Refah onlarındır. Türklerin bir kuru efendiliği vardır. Azınlıktaki aydınları, yurtlarında acaba kaç yıl daha kalabilecekleri kaygısında. Osmanlı Avrupası gençliği hep bir tehlike ürpertisi içinde. Bu ortam, Müslüman ve Türk çocuğunun vatan ve millet duygularını pek erken uyandırır. Çocuk, peri ve dev masallarından fazla, savaş, göç, zafer ve bozgun hikayeleri dinler. Osmanlı tarihinde “serhad” denen şey, ileri yürüyüşlerin, daima başka yurtlara doğru uzaklaşan müjdecisi iken, artık geri dönüşlerin, gitgide bir kara haberci kıldığı serhad, sanki bütün Avrupa Türkiyesinin topraklarına yayılmıştır. Eski hasretler, destan ve türküleri ile, yeni korku, şüphe ve rivayetleri ile, serhad, bütün Makedonya'nın şehirleri ve köyleri içindedir. Medrese yobazlarının manevi baskısı altındaki halk yığınları ise kurtuluşu ta yedinci asırdaki şeriat şartlarına kavuşmakta arar ve başımıza ne geldi ise Kur’an yolundan ayrılmış olmamızdan ileri geldiğini, inanarak, söyler. Ayaklanıp Nizam-ı Cedid’den beri Batılılaşma yolunda neler yapılmışsa hepsini yıkmak için fırsat bekler. Ordu aydınlarında bir uyanış vardır. Onlara göre de baş çare saray istibdadını yıkıp memleketi meşrutiyet rejimine kavuşturmaktır. İşte Manastır lisesini bitiren Mustafa Kemal, bu ortam içinde yetişti ve ciğerleri bu ortamın zehirli havası ile dolu, İstanbul'a gitti.</p>
+      </div>
+      <hr>
+      <div class="grid">
+        <div style="text-align:center"><a href="https://github.com/alperali/hecele">Proje sayfasına dön</a></div>
+      </div>
+    </main>
+
+    <script type="module">
+      import hecele from './hecele.js';
+      const nokim = /([\s\u00AD,;:.'"’“”!?()-]+)/;
+      document.getElementById("metin").textContent = document.getElementById("dene").textContent
+          .split(nokim)
+          .map((e) => {
+             if (nokim.test(e)) return e;
+             return hecele(e, hecele.SHY);
+          })
+          .join("");
+    </script>
+  </body>
+</html>
