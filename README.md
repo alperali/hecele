@@ -4,6 +4,12 @@ Bu proje, sözlük veri tabanı gerektirmeyen, algoritmik bir heceleme yöntemin
 
 ![Demo animasyonu](./demo.gif)
 
+
+## [>> Demo için tıklayın](https://alperali.github.io/hecele/)
+> Demo için güncel bir Chrome, Edge, Firefox, vs sürümü kullanın.
+
+
+
 ## Giriş
 Basit ve yalın bir morfolojik yapısı olan Türkçede heceleme (*hyphenation*) Hint-Avrupa dillerindekinden farklıdır.
 Bitişken (*agglutinative*) bir dil olan Türkçede teorik olarak sözcük uzunluğunun bir üst sınırının olmaması, sözlük veri tabanı kullanımını (*dictionary lookup*) anlamsız kılar.
