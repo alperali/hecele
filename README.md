@@ -246,8 +246,9 @@ export default hecele;
 
 ### Belge üzerinde kullanım
 Heceleme modülü noktalama imleri içermeyen tek sözcük üzerinde çalışmaktadır.
-Tüm bir belgenin bu modülden fayda sağlaması için noktalama imleri atlanarak sözcükler sırayla bu modüle gönderilmeli, tire yerleştirilmiş sözcükler noktalama imlerini kaybetmeden ve orjinal sırasında belge
-içerisine geri yerleştirilmelidir (veya yeni bir belge oluşturulmalıdır). Bu işlemi gösteren örnek bir
+Tüm bir belgenin bu modülden fayda sağlaması için noktalama imleri atlanarak sözcükler sırayla bu modüle gönderilmeli,
+tireler yerleştirilmiş sözcükler noktalama imlerini kaybetmeden ve orjinal sırasında belge
+içerisine geri konulmalıdır (veya yeni bir belge oluşturulmalıdır). Bu işlemi gösteren örnek bir
 Javascript satırı şöyle olabilir:
 
 ```javascript
