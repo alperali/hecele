@@ -8,7 +8,11 @@ Bu proje, sözlük veri tabanı gerektirmeyen, algoritmik bir heceleme yöntemin
 ## [>> Demo için tıklayın](https://alperali.github.io/hecele/)
 > Demo için güncel bir Chrome, Edge, Firefox, vs sürümü kullanın.
 
+## [>> Demo 2](https://alperali.github.io/hecele/seslemle.html)
+> Kendi girdiğiniz metinin hecelenişini görmek içindir. Bir sözcük veya
+> kısa metin girip `Hecele`ye tıklayın. Tireleri silmek için `Geri al`ı tıklayın.
 
+---
 
 ## Giriş
 Basit ve yalın bir morfolojik yapısı olan Türkçede heceleme (*hyphenation*) Hint-Avrupa dillerindekinden farklıdır.
@@ -252,7 +256,7 @@ içerisine geri konulmalıdır (veya yeni bir belge oluşturulmalıdır). Bu iş
 Javascript satırı şöyle olabilir:
 
 ```javascript
-const nokim = /([\s\u00AD,;:.'"’“”!?()-]+)/;  /* noktalama imleri örüntüsü */
+const nokim = /([\s\u00AD\u2010,;:.'"’“”!?()-]+)/;  /* noktalama imleri örüntüsü */
 belge.split(nokim)
      .map((e) => {
         if (nokim.test(e)) return e;

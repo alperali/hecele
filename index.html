@@ -2,7 +2,7 @@
 <html lang="tr">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <title>Heceleme</title>
     <script type="module" src="./hecele.js"></script>
@@ -20,13 +20,13 @@
       <div class="row">
         <h1>Türkçe Heceleme</h1>
       </div>
-      <div class="row">
+      <div class="row pt-2">
         <p class="lead">Aşağıdaki metin kutusunun boyutunu değiştirerek hecelemenin satır sonlarında dinamik değişimini gözleyin.</p>
       </div>
       <div class="row">
         <textarea id="metin" rows="10" readonly></textarea>
       </div>
-      <div class="row">
+      <div class="row pt-2">
           <a class="text-center" href="https://github.com/alperali/hecele">Proje sayfasına dön</a>
       </div>
     </div>
@@ -35,7 +35,7 @@
     
     <script type="module">
       import hecele from './hecele.js';
-      const nokim = /([\s\u00AD,;:.'"’“”!?()-]+)/;
+      const nokim = /([\s\u00AD\u2010,;:.'"’“”!?()-]+)/;
       document.getElementById("metin").textContent = document.getElementById("dene").textContent
           .split(nokim)
           .map((e) => {
