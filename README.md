@@ -265,7 +265,7 @@ belge.split(nokim)
      .join("");
 ```
 #### 10. kural
-    Ayırmada satır sonunda ve satır başında tek harf bırakılmaz[^4]
+> Ayırmada satır sonunda ve satır başında tek harf bırakılmaz[^4]
 
 Bu duruma uyan harfler 2. ve 3. kurallarda gözlenir, örneğin `ö-deme` ve `mesa-i`.
 Her iki durumda da tek kalan harf bir ünlüdür.
