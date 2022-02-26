@@ -35,12 +35,13 @@
     
     <script type="module">
       import hecele from './hecele.js';
-      const nokim = /([\s\u00AD\u2010,;:.'"’“”!?()-]+)/;
+      const nokim = /([\s\u00AD\u2010,;:.'"’“”!?\/()-]+)/;
+      const k10 = /^([aeiouöüıİ])[\u00AD\u2010]|[\u00AD\u2010]([aeiouöüıİ])$/gi;
       document.getElementById("metin").textContent = document.getElementById("dene").textContent
           .split(nokim)
           .map((e) => {
              if (nokim.test(e)) return e;
-             return hecele(e, hecele.SHY);
+             return hecele(e, hecele.SHY).replace(k10, '$1$2');
           })
           .join("");
     </script>

@@ -253,10 +253,10 @@ Heceleme modülü noktalama imleri içermeyen tek sözcük üzerinde çalışmak
 Tüm bir belgenin bu modülden fayda sağlaması için noktalama imleri atlanarak sözcükler sırayla bu modüle gönderilmeli,
 tireler yerleştirilmiş sözcükler noktalama imlerini kaybetmeden ve orjinal sırasında belge
 içerisine geri konulmalıdır (veya yeni bir belge oluşturulmalıdır). Bu işlemi gösteren örnek bir
-Javascript satırı şöyle olabilir:
+Javascript bloğu şöyle olabilir:
 
 ```javascript
-const nokim = /([\s\u00AD\u2010,;:.'"’“”!?()-]+)/;  /* noktalama imleri örüntüsü */
+const nokim = /([\s\u00AD\u2010,;:.'"’“”!?\/()-]+)/;  /* noktalama imleri örüntüsü */
 belge.split(nokim)
      .map((e) => {
         if (nokim.test(e)) return e;
@@ -264,6 +264,25 @@ belge.split(nokim)
       })
      .join("");
 ```
+#### 10. kural
+    Ayırmada satır sonunda ve satır başında tek harf bırakılmaz[^4]
+
+Bu duruma uyan harfler 2. ve 3. kurallarda gözlenir, örneğin `ö-deme` ve `mesa-i`.
+Her iki durumda da tek kalan harf bir ünlüdür.
+Bu kuralı uygulamak için hecelenmiş sözcüğün ilk ve son tirelerine bakılır,
+öncesinde veya sonrasında tek bir ünlü varsa bu tire kaldırılır, böylece satır sonunda ayırma engellenir.
+
+```javascript
+const nokim = /([\s\u00AD\u2010,;:.'"’“”!?\/()-]+)/;  /* noktalama imleri örüntüsü */
+const k10 = /^([aeiouöüıİ])[\u00AD\u2010]|[\u00AD\u2010]([aeiouöüıİ])$/gi;  // 10.
+belge.split(nokim)
+     .map((e) => {
+        if (nokim.test(e)) return e;
+        return hecele(e, hecele.SHY).replace(k10, '$1$2');
+      })
+     .join("");
+```
+
 
 ## Özel durumlar (birleşik sözcükler)
 ---
@@ -276,3 +295,5 @@ belge.split(nokim)
 [^2]: Örüntüler standart Javascript RegEx nesnesini baz alır. Sistem *locale* ayarlarına göre değişkenlik gösterdiği için *character class* ve *range* kullanımı tercih edilmemiştir.
 
 [^3]: https://developer.mozilla.org/en-US/docs/Web/CSS/hyphens
+
+[^4]: https://www.tdk.gov.tr/icerik/yazim-kurallari/hece-yapisi-ve-satir-sonunda-kelimelerin-bolunmesi/
