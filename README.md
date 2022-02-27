@@ -283,9 +283,39 @@ belge.split(nokim)
      .join("");
 ```
 
-
 ## Özel durumlar (birleşik sözcükler)
----
+> İlk heceden sonraki heceler ünsüzle başlar. Bitişik yazılan kelimelerde de bu kurala uyulur:
+> *ba-şöğ-ret-men, il-ko-kul, Ka-ra-os-ma-noğ-lu* vb.[^4]
+
+<table role="table">
+  <tr><th></th><th style="text-align: center">A</th><th style="text-align: center">B</th></tr>
+  <tr><td>İçişleri</td><td><em>İ-çiş-le-ri</em></td><td><em>İç-iş-le-ri</em></tr>
+  <tr></tr> <!-- suppress stripe -->
+  <tr><td>Kızılırmak</td><td><em>Kı-zı-lır-mak</em></td><td><em>Kı-zıl-ır-mak</em></td></tr>
+  <tr></tr> <!-- suppress stripe -->
+  <tr><td>başüstüne</td><td><em>ba-şüs-tü-ne</em></td><td><em>baş-üs-tü-ne</em></td></tr>
+  <tr><td>keloğlan</td><td><em>ke-loğ-lan</em></td><td><em>kel-oğ-lan</em></td></tr>
+  <tr><td>ilkokul</td><td><em>il-ko-kul</em></td><td><em>ilk-o-kul</em></td></tr>
+  <tr><td>başöğretmen</td><td><em>ba-şöğ-ret-men</em></td><td><em>baş-öğ-ret-men</em></td></tr>
+  <tr><td>yayınevi</td><td><em>ya-yı-ne-vi</em></td><td><em>ya-yın-e-vi</em></td></tr>
+  <tr><td>konukevi</td><td><em>ko-nu-ke-vi</em></td><td><em>ko-nuk-e-vi</em></td></tr>
+  <tr><td>seçal</td><td><em>se-çal</em></td><td><em>seç-al</em></td></tr>
+  <tr><td>eloğlu</td><td><em>e-loğ-lu</em></td><td><em>el-oğ-lu</em></td></tr>
+  <tr><td>çapanoğlu<br/>kavuniçi<br/>tavşanağzı<br/>Büyükayı<br/>Küçükayı<br/>başeser<br/>
+      akağaç<br/>ilköğretim<br/>huzurevi<br/>bakımevi<br/>gözlemevi<br/>doğumevi<br/>aşevi<br/>
+      aslanağzı<br/>açıkağız<br/>şeytanarabası<br/>meryemana<br/>hafızali<br/>çadıruşağı<br/>
+      Alper<br/>Gökalp<br/>Şenol<br/>Varol<br/>Birol<br/>
+      horozayağı<br/>beşikörtüsü<br/>pekala<br/>apaçık
+    </td><td><em></em></td><td><em></em></td>
+  </tr>
+</table>
+
+Yukarıdaki tabloda gösterilen birleşik sözcükler heceleme modülü tarafından **A** sütunundaki
+gibi hecelenmektedir. Türk Dil Kurumu da böyle hecelenmesi gerektiğini sitesinde belirtmiştir.
+Eğer bu sonucu tatmin edici buluyorsanız bundan sonrasını okumanıza gerek yoktur.
+Fakat bu sözcüklerin **B** sütunundaki gibi hecelenmesinin daha doğru olduğu ve sonucun
+öyle olması gerektiği görüşündeyseniz, yazının devamı bu durumu ele alacak ve bir çözüm önerecektir.
+
 
 ## Başarım
 
