@@ -290,9 +290,7 @@ belge.split(nokim)
 <table role="table">
   <tr><th></th><th style="text-align: center">A</th><th style="text-align: center">B</th></tr>
   <tr><td>İçişleri</td><td><em>İ-çiş-le-ri</em></td><td><em>İç-iş-le-ri</em></tr>
-  <tr></tr> <!-- suppress stripe -->
   <tr><td>Kızılırmak</td><td><em>Kı-zı-lır-mak</em></td><td><em>Kı-zıl-ır-mak</em></td></tr>
-  <tr></tr> <!-- suppress stripe -->
   <tr><td>başüstüne</td><td><em>ba-şüs-tü-ne</em></td><td><em>baş-üs-tü-ne</em></td></tr>
   <tr><td>keloğlan</td><td><em>ke-loğ-lan</em></td><td><em>kel-oğ-lan</em></td></tr>
   <tr><td>ilkokul</td><td><em>il-ko-kul</em></td><td><em>ilk-o-kul</em></td></tr>
