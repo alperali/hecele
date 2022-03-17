@@ -300,7 +300,7 @@ belge.split(nokim)
   <tr><td>seçal</td><td><em>se-çal</em></td><td><em>seç-al</em></td></tr>
   <tr><td>eloğlu</td><td><em>e-loğ-lu</em></td><td><em>el-oğ-lu</em></td></tr>
   <tr><td>çapanoğlu<br/>kavuniçi<br/>tavşanağzı<br/>Büyükayı<br/>Küçükayı<br/>başeser<br/>
-      akağaç<br/>ilköğretim<br/>huzurevi<br/>bakımevi<br/>gözlemevi<br/>doğumevi<br/>aşevi<br/>
+      akağaç<br/>ilköğretim<br/>huzurevi<br/>bakımevi<br/>gözlemevi<br/>doğumevi<br/>aşevi<br/>Eminönü<br/>
       aslanağzı<br/>açıkağız<br/>şeytanarabası<br/>meryemana<br/>hafızali<br/>çadıruşağı<br/>
       Alper<br/>Gökalp<br/>Şenol<br/>Varol<br/>Birol<br/>
       horozayağı<br/>beşikörtüsü<br/>pekala<br/>apaçık
