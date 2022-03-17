@@ -197,7 +197,7 @@ Kolaylık sağlaması için sözcükte noktalama imleri ve rakamlar olmadığı 
    <table role="table">
      <tr>
        <td>
-         <em>borç-lan-mak<br />fark-lı-laş-tır<br />kont-rol<br />mert<br />hurç<br />Türk</em>
+         <em>borç-lan-mak<br />fark-lı-laş-tır<br />kont-rol<br />kang-ren<br/>mert<br />hurç<br />Türk<br/>sant-ral</em>
        </td>
        <td> zNzzz :4<br />zNzz. :4 </td>
      </tr>
@@ -207,27 +207,44 @@ Kolaylık sağlaması için sözcükte noktalama imleri ve rakamlar olmadığı 
      </tr>
    </table>
 
-10. **Sözcük ünsüz-ünsüz-ünlü-ünsüz olarak başlıyorsa ilk hece 4 harftir.**
+10. **Sözcük ünsüz-ünsüz-ünlü-ünsüz-ünsüz-ünlü olarak başlıyorsa ilk hece 4 harftir.**  
+    **Sözcük ünsüz-ünsüz-ünlü-ünsüz olarak tam 4 harf ise ilk hece sözcüğün tamamıdır.**
 
-   <table role="table">
-     <tr>
-       <td>
-         <em>prog-ram-cı<br />Trak-ya<br />spor<br />tren<br />sant-ral</em>
-       </td>
-       <td> zzNz :4 </td>
-     </tr>
-     <tr></tr> <!-- suppress stripe -->
-     <tr>
-       <td colspan="2"><code>/^[bcçdfgğhjklmnprsştvyz]{2}[aeiouöüıİ][bcçdfgğhjklmnprsştvyz]/i</code></td>
-     </tr>
-   </table>
+    <table role="table">
+      <tr>
+        <td>
+          <em>prog-ram-cı<br />Trak-ya<br />spor<br />tren</em>
+        </td>
+        <td> zzNzzN :4<br/>zzNz. :4</td>
+      </tr>
+      <tr></tr> <!-- suppress stripe -->
+      <tr>
+        <td colspan="2"><code>/^[bcçdfgğhjklmnprsştvyz]{2}[aeiouöüıİ][bcçdfgğhjklmnprsştvyz]($|[bcçdfgğhjklmnprsştvyz][aeiouöüıİ])/i</code></td>
+      </tr>
+    </table>
+
+11. **Sözcük ünsüz-ünsüz-ünlü-ünsüz-ünsüz-ünsüz olarak başlıyorsa ilk hece 5 harftir.**  
+    **Sözcük ünsüz-ünsüz-ünlü-ünsüz-ünsüz olarak tam 5 harf ise ilk hece sözcüğün tamamıdır.**
+
+    <table role="table">
+      <tr>
+        <td>
+          <em>prens<br/>trend<br/>trans<br/>prens-ler<br/>trans-for-mas-yon</em>
+        </td>
+        <td> zzNzzz :5<br/>zzNzz. :5</td>
+      </tr>
+      <tr></tr> <!-- suppress stripe -->
+      <tr>
+        <td colspan="2"><code>/^[bcçdfgğhjklmnprsştvyz]{2}[aeiouöüıİ][bcçdfgğhjklmnprsştvyz]{2}($|[bcçdfgğhjklmnprsştvyz])/i</code></td>
+      </tr>
+    </table>
 
 ## Kullanım ve Uygulama
 Bu çalışma standart web teknolojilerini baz almaktadır (gerekirse şirkete/markaya özel teknolojilere uyarlanabilir).
 Bu bağlamda CSS *hyphens property* odaklı bir uygulama yapılmıştır.[^3]
 Elektronik belgelerin düzgün gösterimi (satır sonu doğru yerde bölme) için tire olarak U+00AD (gizli tire / *soft hyphen*),
 tüm hecelerin açıkça gösterimi için tire olarak U+2010 (açık tire / *hard hyphen*) kullanılmaktadır.
-Yukarıda bahsedilen 10 kurala göre heceleme yapan ve tire türünü (gizli veya açık) argüman olarak alabilen örnek bir Javascript modülü aşağıda gösterilmiştir.
+Yukarıda bahsedilen 11 kurala göre heceleme yapan ve tire türünü (gizli veya açık) argüman olarak alabilen örnek bir Javascript modülü aşağıda gösterilmiştir.
 
 ```javascript
 const SHY = '\u00AD';  // gizli tire (soft hyphen)
@@ -238,10 +255,11 @@ const kurallar = [
   { ptn: /^[aeiouöüıİ][bcçdfgğhjklmnprsştvyz]{2}[aeiouöüıİ]/i, len: 2}, // 4.
   { ptn: /^([bcçdfgğhjklmnprsştvyz][aeiouöüıİ]){2}/i,          len: 2}, // 5.
   { ptn: /^[aeiouöüıİ][bcçdfgğhjklmnprsştvyz]{2}($|[bcçdfgğhjklmnprsştvyz])/i, len: 3},        // 6.
-  { ptn: /^[bcçdfgğhjklmnprsştvyz][aeiouöüıİ][bcçdfgğhjklmnprsştvyz]($|[bcçdfgğhjklmnprsştvyz][aeiouöüıİ])/i, len: 3},  // 7.
+  { ptn: /^[bcçdfgğhjklmnprsştvyz][aeiouöüıİ][bcçdfgğhjklmnprsştvyz]($|[bcçdfgğhjklmnprsştvyz][aeiouöüıİ])/i, len: 3},    // 7.
   { ptn: /^[bcçdfgğhjklmnprsştvyz]{2}[aeiouöüıİ][bcçdfgğhjklmnprsştvyz][aeiouöüıİ]/i, len: 3}, // 8.
-  { ptn: /^[bcçdfgğhjklmnprsştvyz][aeiouöüıİ][bcçdfgğhjklmnprsştvyz]{2}($|[bcçdfgğhjklmnprsştvyz])/i, len: 4},          // 9.
-  { ptn: /^[bcçdfgğhjklmnprsştvyz]{2}[aeiouöüıİ][bcçdfgğhjklmnprsştvyz]/i, len: 4}             // 10.
+  { ptn: /^[bcçdfgğhjklmnprsştvyz][aeiouöüıİ][bcçdfgğhjklmnprsştvyz]{2}($|[bcçdfgğhjklmnprsştvyz])/i, len: 4},            // 9.
+  { ptn: /^[bcçdfgğhjklmnprsştvyz]{2}[aeiouöüıİ][bcçdfgğhjklmnprsştvyz]($|[bcçdfgğhjklmnprsştvyz][aeiouöüıİ])/i, len: 4}, // 10.
+  { ptn: /^[bcçdfgğhjklmnprsştvyz]{2}[aeiouöüıİ][bcçdfgğhjklmnprsştvyz]{2}($|[bcçdfgğhjklmnprsştvyz])/i, len: 5}          // 11.
 ];
 
 function hecele(szck, tire = SHY)
@@ -281,7 +299,7 @@ belge.split(nokim)
       })
      .join("");
 ```
-#### 11. kural
+#### 12. kural
 > Ayırmada satır sonunda ve satır başında tek harf bırakılmaz[^4]
 
 Bu duruma uyan harfler 2. ve 3. kurallarda gözlenir, örneğin `ö-deme` ve `mesa-i`.
