@@ -175,7 +175,23 @@ Kolaylık sağlaması için sözcükte noktalama imleri ve rakamlar olmadığı 
      </tr>
    </table>
 
-8. **Sözcük ünsüz-ünlü-ünsüz-ünsüz-ünsüz olarak başlıyorsa ilk hece 4 harftir.**  
+8. **Sözcük ünsüz-ünsüz-ünlü-ünsüz-ünlü olarak başıyorsa ilk hece 3 harftir.**
+
+   <table role="table">
+    <tr>
+      <td>
+        <em>pro-je<br/>kra-li-çe<br/>tra-fo<br/>pro-fes-yo-nel</em>
+      </td>
+      <td> zzNzN :3 </td>
+    </tr>
+    <tr></tr> <!-- suppress stripe -->
+    <tr>
+      <td colspan="2"><code>/^[bcçdfgğhjklmnprsştvyz]{2}[aeiouöüıİ][bcçdfgğhjklmnprsştvyz][aeiouöüıİ]/i</code>
+      </td>
+    </tr>
+   </table>
+
+9. **Sözcük ünsüz-ünlü-ünsüz-ünsüz-ünsüz olarak başlıyorsa ilk hece 4 harftir.**  
    **Sözcük ünsüz-ünlü-ünsüz-ünsüz olarak tam 4 harf ise ilk hece sözcüğün tamamıdır.**
 
    <table role="table">
@@ -191,12 +207,12 @@ Kolaylık sağlaması için sözcükte noktalama imleri ve rakamlar olmadığı 
      </tr>
    </table>
 
-9. **Sözcük ünsüz-ünsüz-ünlü-ünsüz olarak başlıyorsa ilk hece 4 harftir.**
+10. **Sözcük ünsüz-ünsüz-ünlü-ünsüz olarak başlıyorsa ilk hece 4 harftir.**
 
    <table role="table">
      <tr>
        <td>
-         <em>prog-ram-cı<br />Trak-ya<br />spor<br />tren<br />sant-ral<br />kral-i-çe<br 7>tren-e</em>
+         <em>prog-ram-cı<br />Trak-ya<br />spor<br />tren<br />sant-ral</em>
        </td>
        <td> zzNz :4 </td>
      </tr>
@@ -211,7 +227,7 @@ Bu çalışma standart web teknolojilerini baz almaktadır (gerekirse şirkete/m
 Bu bağlamda CSS *hyphens property* odaklı bir uygulama yapılmıştır.[^3]
 Elektronik belgelerin düzgün gösterimi (satır sonu doğru yerde bölme) için tire olarak U+00AD (gizli tire / *soft hyphen*),
 tüm hecelerin açıkça gösterimi için tire olarak U+2010 (açık tire / *hard hyphen*) kullanılmaktadır.
-Yukarıda bahsedilen 9 kurala göre heceleme yapan ve tire türünü (gizli veya açık) argüman olarak alabilen örnek bir Javascript modülü aşağıda gösterilmiştir.
+Yukarıda bahsedilen 10 kurala göre heceleme yapan ve tire türünü (gizli veya açık) argüman olarak alabilen örnek bir Javascript modülü aşağıda gösterilmiştir.
 
 ```javascript
 const SHY = '\u00AD';  // gizli tire (soft hyphen)
@@ -221,10 +237,11 @@ const kurallar = [
   { ptn: /^[bcçdfgğhjklmnprsştvyz][aeiouöüıİ]{2}/i,            len: 2}, // 3.
   { ptn: /^[aeiouöüıİ][bcçdfgğhjklmnprsştvyz]{2}[aeiouöüıİ]/i, len: 2}, // 4.
   { ptn: /^([bcçdfgğhjklmnprsştvyz][aeiouöüıİ]){2}/i,          len: 2}, // 5.
-  { ptn: /^[aeiouöüıİ][bcçdfgğhjklmnprsştvyz]{2}($|[bcçdfgğhjklmnprsştvyz])/i, len: 3}, // 6.
+  { ptn: /^[aeiouöüıİ][bcçdfgğhjklmnprsştvyz]{2}($|[bcçdfgğhjklmnprsştvyz])/i, len: 3},        // 6.
   { ptn: /^[bcçdfgğhjklmnprsştvyz][aeiouöüıİ][bcçdfgğhjklmnprsştvyz]($|[bcçdfgğhjklmnprsştvyz][aeiouöüıİ])/i, len: 3},  // 7.
-  { ptn: /^[bcçdfgğhjklmnprsştvyz][aeiouöüıİ][bcçdfgğhjklmnprsştvyz]{2}($|[bcçdfgğhjklmnprsştvyz])/i, len: 4},          // 8.
-  { ptn: /^[bcçdfgğhjklmnprsştvyz]{2}[aeiouöüıİ][bcçdfgğhjklmnprsştvyz]/i, len: 4}       // 9.
+  { ptn: /^[bcçdfgğhjklmnprsştvyz]{2}[aeiouöüıİ][bcçdfgğhjklmnprsştvyz][aeiouöüıİ]/i, len: 3}, // 8.
+  { ptn: /^[bcçdfgğhjklmnprsştvyz][aeiouöüıİ][bcçdfgğhjklmnprsştvyz]{2}($|[bcçdfgğhjklmnprsştvyz])/i, len: 4},          // 9.
+  { ptn: /^[bcçdfgğhjklmnprsştvyz]{2}[aeiouöüıİ][bcçdfgğhjklmnprsştvyz]/i, len: 4}             // 10.
 ];
 
 function hecele(szck, tire = SHY)
@@ -264,7 +281,7 @@ belge.split(nokim)
       })
      .join("");
 ```
-#### 10. kural
+#### 11. kural
 > Ayırmada satır sonunda ve satır başında tek harf bırakılmaz[^4]
 
 Bu duruma uyan harfler 2. ve 3. kurallarda gözlenir, örneğin `ö-deme` ve `mesa-i`.
@@ -274,7 +291,7 @@ Bu kuralı uygulamak için hecelenmiş sözcüğün ilk ve son tirelerine bakıl
 
 ```javascript
 const nokim = /([\s\u00AD\u2010,;:.'"’“”!?\/()-]+)/;  /* noktalama imleri örüntüsü */
-const k10 = /^([aeiouöüıİ])[\u00AD\u2010]|[\u00AD\u2010]([aeiouöüıİ])$/gi;  // 10.
+const k10 = /^([aeiouöüıİ])[\u00AD\u2010]|[\u00AD\u2010]([aeiouöüıİ])$/gi;  // 11.
 belge.split(nokim)
      .map((e) => {
         if (nokim.test(e)) return e;
