@@ -229,7 +229,7 @@ Kolaylık sağlaması için sözcükte noktalama imleri ve rakamlar olmadığı 
     <table role="table">
       <tr>
         <td>
-          <em>prens<br/>trend<br/>trans<br/>prens-ler<br/>trans-for-mas-yon<br/>sport-men-ce</em>
+          <em>prens<br/>trend<br/>trans<br/>prens-ler<br/>trans-for-mas-yon<br/>sport-men-ce<br/>trans-krip-si-yon</em>
         </td>
         <td> zzNzzz :5<br/>zzNzz. :5</td>
       </tr>
