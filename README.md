@@ -69,7 +69,7 @@ Simgesel gösterimde **N** ünlü, **z** ünsüzü temsil eder.
 Kolaylık sağlaması için sözcükte noktalama imleri ve rakamlar olmadığı varsayılmıştır.
 
 1. **Sözcük 3 harften kısa ise ilk hece sözcüğün tamamıdır.**
-
+   
    <table role="table">
      <tr>
        <td>
@@ -84,7 +84,7 @@ Kolaylık sağlaması için sözcükte noktalama imleri ve rakamlar olmadığı 
    </table>
 
 2. **Sözcük ünlü-ünsüz-ünlü olarak başlıyorsa ilk hece 1 harftir.**
-
+   
    <table role="table">
      <tr>
        <td>
@@ -98,8 +98,23 @@ Kolaylık sağlaması için sözcükte noktalama imleri ve rakamlar olmadığı 
      </tr>
    </table>
 
-3. **Sözcük ünsüz-ünlü-ünlü olarak başlıyorsa ilk hece 2 harftir.**
+3. **Sözcük ünlü-ünlü-ünsüz olarak başlıyorsa ilk hece 1 harftir.**
+   
+   <table role="table">
+     <tr>
+       <td>
+         <em>a-i-le<br />a-it<br />a-i-di-yet<br />i-a-şe<br/>i-a-ne</em>
+       </td>
+       <td> NNz :1 </td>
+     </tr>
+     <tr></tr> <!-- suppress stripe -->
+     <tr>
+       <td colspan="2"><code>/^[aeiouöüıİ]{2}[bcçdfgğhjklmnprsştvyz]/i</code></td>
+     </tr>
+   </table>
 
+4. **Sözcük ünsüz-ünlü-ünlü olarak başlıyorsa ilk hece 2 harftir.**
+   
    <table role="table">
      <tr>
        <td>
@@ -113,8 +128,8 @@ Kolaylık sağlaması için sözcükte noktalama imleri ve rakamlar olmadığı 
      </tr>
    </table>
 
-4. **Sözcük ünlü-ünsüz-ünsüz-ünlü olarak başlıyorsa ilk hece 2 harftir.**
-
+5. **Sözcük ünlü-ünsüz-ünsüz-ünlü olarak başlıyorsa ilk hece 2 harftir.**
+   
    <table role="table">
      <tr>
        <td>
@@ -128,8 +143,8 @@ Kolaylık sağlaması için sözcükte noktalama imleri ve rakamlar olmadığı 
      </tr>
    </table>
 
-5. **Sözcük ünsüz-ünlü-ünsüz-ünlü olarak başlıyorsa ilk hece 2 harftir.**
-
+6. **Sözcük ünsüz-ünlü-ünsüz-ünlü olarak başlıyorsa ilk hece 2 harftir.**
+   
    <table role="table">
      <tr>
        <td>
@@ -143,9 +158,9 @@ Kolaylık sağlaması için sözcükte noktalama imleri ve rakamlar olmadığı 
      </tr>
    </table>
 
-6. **Sözcük ünlü-ünsüz-ünsüz-ünsüz olarak başlıyorsa ilk hece 3 harftir.**  
+7. **Sözcük ünlü-ünsüz-ünsüz-ünsüz olarak başlıyorsa ilk hece 3 harftir.**  
    **Sözcük ünlü-ünsüz-ünsüz olarak tam 3 harf ise ilk hece sözcüğün tamamıdır.**
-
+   
    <table role="table">
      <tr>
        <td>
@@ -159,9 +174,9 @@ Kolaylık sağlaması için sözcükte noktalama imleri ve rakamlar olmadığı 
      </tr>
    </table>
 
-7. **Sözcük ünsüz-ünlü-ünsüz-ünsüz-ünlü olarak başlıyorsa ilk hece 3 harftir.**  
+8. **Sözcük ünsüz-ünlü-ünsüz-ünsüz-ünlü olarak başlıyorsa ilk hece 3 harftir.**  
    **Sözcük ünsüz-ünlü-ünsüz olarak tam 3 harf ise ilk hece sözcüğün tamamıdır.**
-
+   
    <table role="table">
      <tr>
        <td>
@@ -169,14 +184,14 @@ Kolaylık sağlaması için sözcükte noktalama imleri ve rakamlar olmadığı 
        </td>
        <td> zNzzN :3<br />zNz. :3 </td>
      </tr>
-     <tr></tr> <!-- suppress stripe -->     
+     <tr></tr> <!-- suppress stripe -->
      <tr>
        <td colspan="2"><code>/^[bcçdfgğhjklmnprsştvyz][aeiouöüıİ][bcçdfgğhjklmnprsştvyz]($|[bcçdfgğhjklmnprsştvyz][aeiouöüıİ])/i</code></td>
      </tr>
    </table>
 
-8. **Sözcük ünsüz-ünsüz-ünlü-ünsüz-ünlü olarak başıyorsa ilk hece 3 harftir.**
-
+9. **Sözcük ünsüz-ünsüz-ünlü-ünsüz-ünlü olarak başıyorsa ilk hece 3 harftir.**
+   
    <table role="table">
     <tr>
       <td>
@@ -191,25 +206,25 @@ Kolaylık sağlaması için sözcükte noktalama imleri ve rakamlar olmadığı 
     </tr>
    </table>
 
-9. **Sözcük ünsüz-ünlü-ünsüz-ünsüz-ünsüz olarak başlıyorsa ilk hece 4 harftir.**  
-   **Sözcük ünsüz-ünlü-ünsüz-ünsüz olarak tam 4 harf ise ilk hece sözcüğün tamamıdır.**
-
-   <table role="table">
-     <tr>
-       <td>
+10. **Sözcük ünsüz-ünlü-ünsüz-ünsüz-ünsüz olarak başlıyorsa ilk hece 4 harftir.**  
+    **Sözcük ünsüz-ünlü-ünsüz-ünsüz olarak tam 4 harf ise ilk hece sözcüğün tamamıdır.**
+    
+    <table role="table">
+      <tr>
+        <td>
          <em>borç-lan-mak<br />fark-lı-laş-tır<br />kont-rol<br />kang-ren<br/>mert<br />hurç<br />Türk<br/>sant-ral</em>
-       </td>
+        </td>
        <td> zNzzz :4<br />zNzz. :4 </td>
-     </tr>
-     <tr></tr> <!-- suppress stripe -->     
-     <tr>
-       <td colspan="2"><code>/^[bcçdfgğhjklmnprsştvyz][aeiouöüıİ][bcçdfgğhjklmnprsştvyz]{2}($|[bcçdfgğhjklmnprsştvyz])/i</code></td>
-     </tr>
-   </table>
+      </tr>
+      <tr></tr> <!-- suppress stripe -->
+      <tr>
+        <td colspan="2"><code>/^[bcçdfgğhjklmnprsştvyz][aeiouöüıİ][bcçdfgğhjklmnprsştvyz]{2}($|[bcçdfgğhjklmnprsştvyz])/i</code></td>
+      </tr>
+    </table>
 
-10. **Sözcük ünsüz-ünsüz-ünlü-ünsüz-ünsüz-ünlü olarak başlıyorsa ilk hece 4 harftir.**  
+11. **Sözcük ünsüz-ünsüz-ünlü-ünsüz-ünsüz-ünlü olarak başlıyorsa ilk hece 4 harftir.**  
     **Sözcük ünsüz-ünsüz-ünlü-ünsüz olarak tam 4 harf ise ilk hece sözcüğün tamamıdır.**
-
+    
     <table role="table">
       <tr>
         <td>
@@ -223,9 +238,9 @@ Kolaylık sağlaması için sözcükte noktalama imleri ve rakamlar olmadığı 
       </tr>
     </table>
 
-11. **Sözcük ünsüz-ünsüz-ünlü-ünsüz-ünsüz-ünsüz olarak başlıyorsa ilk hece 5 harftir.**  
+12. **Sözcük ünsüz-ünsüz-ünlü-ünsüz-ünsüz-ünsüz olarak başlıyorsa ilk hece 5 harftir.**  
     **Sözcük ünsüz-ünsüz-ünlü-ünsüz-ünsüz olarak tam 5 harf ise ilk hece sözcüğün tamamıdır.**
-
+    
     <table role="table">
       <tr>
         <td>
@@ -244,22 +259,23 @@ Bu çalışma standart web teknolojilerini baz almaktadır (gerekirse şirkete/m
 Bu bağlamda CSS *hyphens property* odaklı bir uygulama yapılmıştır.[^3]
 Elektronik belgelerin düzgün gösterimi (satır sonu doğru yerde bölme) için tire olarak U+00AD (gizli tire / *soft hyphen*),
 tüm hecelerin açıkça gösterimi için tire olarak U+2010 (açık tire / *hard hyphen*) kullanılmaktadır.
-Yukarıda bahsedilen 11 kurala göre heceleme yapan ve tire türünü (gizli veya açık) argüman olarak alabilen örnek bir Javascript modülü aşağıda gösterilmiştir.
+Yukarıda bahsedilen 12 kurala göre heceleme yapan ve tire türünü (gizli veya açık) argüman olarak alabilen örnek bir Javascript modülü aşağıda gösterilmiştir.
 
 ```javascript
 const SHY = '\u00AD';  // gizli tire (soft hyphen)
 const HRD = '\u2010';  // açık tire  (hard hyphen)
 const kurallar = [
   { ptn: /^[aeiouöüıİ][bcçdfgğhjklmnprsştvyz][aeiouöüıİ]/i,    len: 1}, // 2.
-  { ptn: /^[bcçdfgğhjklmnprsştvyz][aeiouöüıİ]{2}/i,            len: 2}, // 3.
-  { ptn: /^[aeiouöüıİ][bcçdfgğhjklmnprsştvyz]{2}[aeiouöüıİ]/i, len: 2}, // 4.
-  { ptn: /^([bcçdfgğhjklmnprsştvyz][aeiouöüıİ]){2}/i,          len: 2}, // 5.
-  { ptn: /^[aeiouöüıİ][bcçdfgğhjklmnprsştvyz]{2}($|[bcçdfgğhjklmnprsştvyz])/i, len: 3},        // 6.
-  { ptn: /^[bcçdfgğhjklmnprsştvyz][aeiouöüıİ][bcçdfgğhjklmnprsştvyz]($|[bcçdfgğhjklmnprsştvyz][aeiouöüıİ])/i, len: 3},    // 7.
-  { ptn: /^[bcçdfgğhjklmnprsştvyz]{2}[aeiouöüıİ][bcçdfgğhjklmnprsştvyz][aeiouöüıİ]/i, len: 3}, // 8.
-  { ptn: /^[bcçdfgğhjklmnprsştvyz][aeiouöüıİ][bcçdfgğhjklmnprsştvyz]{2}($|[bcçdfgğhjklmnprsştvyz])/i, len: 4},            // 9.
-  { ptn: /^[bcçdfgğhjklmnprsştvyz]{2}[aeiouöüıİ][bcçdfgğhjklmnprsştvyz]($|[bcçdfgğhjklmnprsştvyz][aeiouöüıİ])/i, len: 4}, // 10.
-  { ptn: /^[bcçdfgğhjklmnprsştvyz]{2}[aeiouöüıİ][bcçdfgğhjklmnprsştvyz]{2}($|[bcçdfgğhjklmnprsştvyz])/i, len: 5}          // 11.
+  { ptn: /^[aeiouöüıİ]{2}[bcçdfgğhjklmnprsştvyz]/i,            len: 1}, // 3.
+  { ptn: /^[bcçdfgğhjklmnprsştvyz][aeiouöüıİ]{2}/i,            len: 2}, // 4.
+  { ptn: /^[aeiouöüıİ][bcçdfgğhjklmnprsştvyz]{2}[aeiouöüıİ]/i, len: 2}, // 5.
+  { ptn: /^([bcçdfgğhjklmnprsştvyz][aeiouöüıİ]){2}/i,          len: 2}, // 6.
+  { ptn: /^[aeiouöüıİ][bcçdfgğhjklmnprsştvyz]{2}($|[bcçdfgğhjklmnprsştvyz])/i, len: 3},        // 7.
+  { ptn: /^[bcçdfgğhjklmnprsştvyz][aeiouöüıİ][bcçdfgğhjklmnprsştvyz]($|[bcçdfgğhjklmnprsştvyz][aeiouöüıİ])/i, len: 3},    // 8.
+  { ptn: /^[bcçdfgğhjklmnprsştvyz]{2}[aeiouöüıİ][bcçdfgğhjklmnprsştvyz][aeiouöüıİ]/i, len: 3}, // 9.
+  { ptn: /^[bcçdfgğhjklmnprsştvyz][aeiouöüıİ][bcçdfgğhjklmnprsştvyz]{2}($|[bcçdfgğhjklmnprsştvyz])/i, len: 4},            // 10.
+  { ptn: /^[bcçdfgğhjklmnprsştvyz]{2}[aeiouöüıİ][bcçdfgğhjklmnprsştvyz]($|[bcçdfgğhjklmnprsştvyz][aeiouöüıİ])/i, len: 4}, // 11.
+  { ptn: /^[bcçdfgğhjklmnprsştvyz]{2}[aeiouöüıİ][bcçdfgğhjklmnprsştvyz]{2}($|[bcçdfgğhjklmnprsştvyz])/i, len: 5}          // 12.
 ];
 
 function hecele(szck, tire = SHY)
@@ -299,21 +315,21 @@ belge.split(nokim)
       })
      .join("");
 ```
-#### 12. kural
+#### 13. kural
 > Ayırmada satır sonunda ve satır başında tek harf bırakılmaz[^4]
 
-Bu duruma uyan harfler 2. ve 3. kurallarda gözlenir, örneğin `ö-deme` ve `mesa-i`.
-Her iki durumda da tek kalan harf bir ünlüdür.
+Bu duruma uyan harfler 2, 3 ve 4. kurallarda gözlenir, örneğin `ö-deme`, `a-ile`, `mesa-i`.
+Her üç durumda da tek kalan harf bir ünlüdür.
 Bu kuralı uygulamak için hecelenmiş sözcüğün ilk ve son tirelerine bakılır,
 öncesinde veya sonrasında tek bir ünlü varsa bu tire kaldırılır, böylece satır sonunda ayırma engellenir.
 
 ```javascript
 const nokim = /([\s\u00AD\u2010,;:.'"’“”!?\/()-]+)/;  /* noktalama imleri örüntüsü */
-const k12 = /^([aeiouöüıİ])[\u00AD\u2010]|[\u00AD\u2010]([aeiouöüıİ])$/gi;  // 12.
+const k13 = /^([aeiouöüıİ])[\u00AD\u2010]|[\u00AD\u2010]([aeiouöüıİ])$/gi;  // 13.
 belge.split(nokim)
      .map((e) => {
         if (nokim.test(e)) return e;
-        return hecele(e, hecele.SHY).replace(k12, '$1$2');
+        return hecele(e, hecele.SHY).replace(k13, '$1$2');
       })
      .join("");
 ```
