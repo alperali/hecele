@@ -309,11 +309,11 @@ Bu kuralı uygulamak için hecelenmiş sözcüğün ilk ve son tirelerine bakıl
 
 ```javascript
 const nokim = /([\s\u00AD\u2010,;:.'"’“”!?\/()-]+)/;  /* noktalama imleri örüntüsü */
-const k10 = /^([aeiouöüıİ])[\u00AD\u2010]|[\u00AD\u2010]([aeiouöüıİ])$/gi;  // 11.
+const k12 = /^([aeiouöüıİ])[\u00AD\u2010]|[\u00AD\u2010]([aeiouöüıİ])$/gi;  // 12.
 belge.split(nokim)
      .map((e) => {
         if (nokim.test(e)) return e;
-        return hecele(e, hecele.SHY).replace(k10, '$1$2');
+        return hecele(e, hecele.SHY).replace(k12, '$1$2');
       })
      .join("");
 ```
@@ -368,14 +368,14 @@ belge.split(nokim)
 </table>
 
 Yukarıdaki tabloda gösterilen birleşik sözcükler heceleme modülü tarafından **A** sütunundaki
-gibi hecelenmektedir. Türk Dil Kurumu da böyle hecelenmesi gerektiğini sitesinde belirtmiştir.
+gibi hecelenmektedir. Türk Dil Kurumu da böyle hecelenmesi gerektiğini sitesinde belirtmiştir.[^5]
 Eğer bu sonucu tatmin edici buluyorsanız bundan sonrasını okumanıza gerek yoktur.
 Fakat bu sözcüklerin **B** sütunundaki gibi hecelenmesinin daha doğru olduğu ve sonucun
 öyle olması gerektiği görüşündeyseniz, yazının devamı bu durumu ele alacak ve bir çözüm önerecektir.
 
 Birleşim noktasından önce ünsüz ve sonra ünlü gelen birleşik sözcüklerde bu durum görülmektedir.
 Bu sözcükler birleşik değil de ayrı yazılıyor olsalar heceleme **B** sütunundaki gibi olacaktır.
-O halde, birleşim noktasını tespit edebilen bir algoritma hecelemeyi **B**’deki gibi yapabilir.
+O halde, birleşim noktasını saptayabilen bir algoritma hecelemeyi **B**’deki gibi yapabilir.
 Bunun için “sözcük analizi” yapan bir çözüm düşünülmelidir. Halbuki bu çalışma “harf analizi” üzerine
 kurulmuştur (harflerin yeri ve türüne dayalı). Sözcük analizi, buradaki algoritmanın pratik ve basit
 olmaktan çıkıp bambaşka bir boyuta taşınmasına sebep olur. Bu biçim birleşik sözcüklerin az sayıda olması da
@@ -393,3 +393,5 @@ Bunun için küçük bir tablo kullanarak arama yapmak yeterli olacaktır.
 [^3]: https://developer.mozilla.org/en-US/docs/Web/CSS/hyphens
 
 [^4]: https://www.tdk.gov.tr/icerik/yazim-kurallari/hece-yapisi-ve-satir-sonunda-kelimelerin-bolunmesi/
+
+[^5]: TDK’nin ifadesi kendi verdiği örnekle çelişmektedir: *Karaosmanoğlu* örneğindeki durum ilk hece değil dördüncü hecede mevcuttur. Kendi tablomuzda da ilk heceyi aşan pek çok örnek vardır. 2015 yılından sonra ortaya çıktığı tahmin edilen bu muğlak heceleme kuralının kamuya açık bir gerekçesine ulaşılamamıştır.
