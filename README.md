@@ -12,6 +12,8 @@ Bu proje, sözlük veri tabanı gerektirmeyen, algoritmik bir heceleme yöntemin
 > Kendi girdiğiniz metinin hecelenişini görmek içindir. Bir sözcük veya
 > kısa metin girip `Hecele`ye tıklayın. Tireleri silmek için `Geri al`ı tıklayın.
 
+Bulduğunuz hataları alper.goplay@gmail.com adresine bildirin, veya Issues altında bir kayıt açın.
+
 ---
 
 ## Giriş
@@ -387,7 +389,7 @@ Yukarıdaki tabloda gösterilen birleşik sözcükler heceleme modülü tarafın
 gibi hecelenmektedir. Türk Dil Kurumu da böyle hecelenmesi gerektiğini sitesinde belirtmiştir.[^5]
 Eğer bu sonucu tatmin edici buluyorsanız bundan sonrasını okumanıza gerek yoktur.
 Fakat bu sözcüklerin **B** sütunundaki gibi hecelenmesinin daha doğru olduğu ve sonucun
-öyle olması gerektiği görüşündeyseniz, yazının devamı bu durumu ele alacak ve bir çözüm önerecektir.
+öyle olması gerektiği görüşündeyseniz,[^6] yazının devamı bu durumu ele alacak ve bir çözüm önerecektir.
 
 Birleşim noktasından önce ünsüz ve sonra ünlü gelen birleşik sözcüklerde bu durum görülmektedir.
 Bu sözcükler birleşik değil de ayrı yazılıyor olsalar heceleme **B** sütunundaki gibi olacaktır.
@@ -411,3 +413,5 @@ Bunun için küçük bir tablo kullanarak arama yapmak yeterli olacaktır.
 [^4]: https://www.tdk.gov.tr/icerik/yazim-kurallari/hece-yapisi-ve-satir-sonunda-kelimelerin-bolunmesi/
 
 [^5]: TDK’nin ifadesi kendi verdiği örnekle çelişmektedir: *Karaosmanoğlu* örneğindeki durum ilk hece değil dördüncü hecede mevcuttur. Kendi tablomuzda da ilk heceyi aşan pek çok örnek vardır. 2015 yılından sonra ortaya çıktığı tahmin edilen bu muğlak heceleme kuralının kamuya açık bir gerekçesine ulaşılamamıştır.
+
+[^6]: **A** sütunundaki gibi yapılan heceleme, birleşik sözcükteki birleşim noktası algısını bozar ve zamanla bunun birleşik sözcük olduğunu unutturur, birleşik sözcüklerin değeri ve üretilmesi gelecekte bilinmez olabilir.
