@@ -336,72 +336,6 @@ belge.split(nokim)
      .join("");
 ```
 
-## Özel durumlar (birleşik sözcükler)
-> İlk heceden sonraki heceler ünsüzle başlar. Bitişik yazılan kelimelerde de bu kurala uyulur:
-> *ba-şöğ-ret-men, il-ko-kul, Ka-ra-os-ma-noğ-lu* vb.[^4]
-
-<table role="table">
-  <tr><th></th><th style="text-align: center">A</th><th style="text-align: center">B</th></tr>
-  <tr><td>İçişleri</td><td><em>İ-çiş-le-ri</em></td><td><em>İç-iş-le-ri</em></tr>
-  <tr><td>Kızılırmak</td><td><em>Kı-zı-lır-mak</em></td><td><em>Kı-zıl-ır-mak</em></td></tr>
-  <tr><td>başüstüne</td><td><em>ba-şüs-tü-ne</em></td><td><em>baş-üs-tü-ne</em></td></tr>
-  <tr><td>keloğlan</td><td><em>ke-loğ-lan</em></td><td><em>kel-oğ-lan</em></td></tr>
-  <tr><td>ilkokul</td><td><em>il-ko-kul</em></td><td><em>ilk-o-kul</em></td></tr>
-  <tr><td>başöğretmen</td><td><em>ba-şöğ-ret-men</em></td><td><em>baş-öğ-ret-men</em></td></tr>
-  <tr><td>ilköğretim</td><td><em>il-köğ-re-tim</em></td><td><em>ilk-öğ-re-tim</em></td></tr>
-  <tr><td>yayınevi</td><td><em>ya-yı-ne-vi</em></td><td><em>ya-yın-e-vi</em></td></tr>
-  <tr><td>konukevi</td><td><em>ko-nu-ke-vi</em></td><td><em>ko-nuk-e-vi</em></td></tr>
-  <tr><td>seçal</td><td><em>se-çal</em></td><td><em>seç-al</em></td></tr>
-  <tr><td>eloğlu</td><td><em>e-loğ-lu</em></td><td><em>el-oğ-lu</em></td></tr>
-  <tr><td>çapanoğlu</td><td><em>ça-pa-noğ-lu</em></td><td><em>ça-pan-oğ-lu</em></td></tr>
-  <tr><td>kavuniçi</td><td><em>ka-vu-ni-çi</em></td><td><em>ka-vun-i-çi</em></td></tr>
-  <tr><td>tavşanağzı</td><td><em>tav-şa-nağ-zı</em></td><td><em>tav-şan-ağ-zı</em></td></tr>
-  <tr><td>Büyükayı</td><td><em>Bü-yü-ka-yı</em></td><td><em>Bü-yük-a-yı</em></td></tr>
-  <tr><td>Küçükayı</td><td><em>Kü-çü-ka-yı</em></td><td><em>Kü-çük-a-yı</em></td></tr>
-  <tr><td>başeser</td><td><em>ba-şe-ser</em></td><td><em>baş-e-ser</em></td></tr>
-  <tr><td>akağaç</td><td><em>a-ka-ğaç</em></td><td><em>ak-a-ğaç</em></td></tr>
-  <tr><td>aslanağzı</td><td><em>as-la-nağ-zı</em></td><td><em>as-lan-ağ-zı</em></td></tr>
-  <tr><td>açıkağız</td><td><em>a-çı-ka-ğız</em></td><td><em>a-çık-a-ğız</em></td></tr>
-  <tr><td>şeytanarabası</td><td><em>şey-ta-na-ra-ba-sı</em></td><td><em>şey-tan-a-ra-ba-sı</em></td></tr>
-  <tr><td>meryemana</td><td><em>mer-ye-ma-na</em></td><td><em>mer-yem-a-na</em></td></tr>
-  <tr><td>hafızali</td><td><em>ha-fı-za-li</em></td><td><em>ha-fız-a-li</em></td></tr>
-  <tr><td>çadıruşağı</td><td><em>ça-dı-ru-şa-ğı</em></td><td><em>ça-dır-u-şa-ğı</em></td></tr>
-  <tr><td>horozayağı</td><td><em>ho-ro-za-ya-ğı</em></td><td><em>ho-roz-a-ya-ğı</em></td></tr>
-  <tr><td>beşikörtüsü</td><td><em>be-şi-kör-tü-sü</em></td><td><em>be-şik-ör-tü-sü</em></td></tr>
-  <tr><td>huzurevi</td><td><em>hu-zu-re-vi</em></td><td><em>hu-zur-e-vi</em></td></tr>
-  <tr><td>bakımevi</td><td><em>ba-kı-me-vi</em></td><td><em>ba-kım-e-vi</em></td></tr>
-  <tr><td>gözlemevi</td><td><em>göz-le-me-vi</em></td><td><em>göz-lem-e-vi</em></td></tr>
-  <tr><td>doğumevi</td><td><em>do-ğu-me-vi</em></td><td><em>do-ğum-e-vi</em></td></tr>
-  <tr><td>aşevi</td><td><em>a-şe-vi</em></td><td><em>aş-e-vi</em></td></tr>
-  <tr><td>Alper</td><td><em>Al-per</em></td><td><em>Alp-er</em></td></tr>
-  <tr><td>Şener</td><td><em>Şe-ner</em></td><td><em>Şen-er</em></td></tr>
-  <tr><td>Gökalp</td><td><em>Gö-kalp</em></td><td><em>Gök-alp</em></td></tr>
-  <tr><td>Şenol</td><td><em>Şe-nol</em></td><td><em>Şen-ol</em></td></tr>
-  <tr><td>Varol</td><td><em>Va-rol</em></td><td><em>Var-ol</em></td></tr>
-  <tr><td>Birol</td><td><em>Bi-rol</em></td><td><em>Bir-ol</em></td></tr>
-  <tr><td>Eminönü<br/>
-      pekala<br/>apaçık
-    </td><td><em></em></td><td><em></em></td>
-  </tr>
-</table>
-
-Yukarıdaki tabloda gösterilen birleşik sözcükler heceleme modülü tarafından **A** sütunundaki
-gibi hecelenmektedir. Türk Dil Kurumu da böyle hecelenmesi gerektiğini sitesinde belirtmiştir.[^5]
-Eğer bu sonucu tatmin edici buluyorsanız bundan sonrasını okumanıza gerek yoktur.
-Fakat bu sözcüklerin **B** sütunundaki gibi hecelenmesinin daha doğru olduğu ve sonucun
-öyle olması gerektiği görüşündeyseniz,[^6] yazının devamı bu durumu ele alacak ve bir çözüm önerecektir.
-
-Birleşim noktasından önce ünsüz ve sonra ünlü gelen birleşik sözcüklerde bu durum görülmektedir.
-Bu sözcükler birleşik değil de ayrı yazılıyor olsalar heceleme **B** sütunundaki gibi olacaktır.
-O halde, birleşim noktasını saptayabilen bir algoritma hecelemeyi **B**’deki gibi yapabilir.
-Bunun için “sözcük analizi” yapan bir çözüm düşünülmelidir. Halbuki bu çalışma “harf analizi” üzerine
-kurulmuştur (harflerin yeri ve türüne dayalı). Sözcük analizi, buradaki algoritmanın pratik ve basit
-olmaktan çıkıp bambaşka bir boyuta taşınmasına sebep olur. Bu biçim birleşik sözcüklerin az sayıda olması da
-böylesi bir karmaşıklığı gereksiz kılmaktadır. O halde, bu birleşik sözcükler birleşim noktaları önceden
-işaretlenerek heceleme modülüne gönderilirse **B**’deki sonuç elde edilebilir.
-Bunun için küçük bir tablo kullanarak arama yapmak yeterli olacaktır.
-
-## Başarım
 
 
 [^1]: Bu anlatım [2016’da yapılmış bir çalışmaya](https://github.com/alperali/jsders/blob/6fe279dcfe836bf6c98fd04a6403281414f4d57f/hecele.js) dayanmaktadır.
@@ -411,7 +345,3 @@ Bunun için küçük bir tablo kullanarak arama yapmak yeterli olacaktır.
 [^3]: https://developer.mozilla.org/en-US/docs/Web/CSS/hyphens
 
 [^4]: https://www.tdk.gov.tr/icerik/yazim-kurallari/hece-yapisi-ve-satir-sonunda-kelimelerin-bolunmesi/
-
-[^5]: TDK’nin ifadesi kendi verdiği örnekle çelişmektedir: *Karaosmanoğlu* örneğindeki durum ilk hece değil dördüncü hecede mevcuttur. Kendi tablomuzda da ilk heceyi aşan pek çok örnek vardır. 2015 yılından sonra ortaya çıktığı tahmin edilen bu muğlak heceleme kuralının kamuya açık bir gerekçesine ulaşılamamıştır.
-
-[^6]: **A** sütunundaki gibi yapılan heceleme, birleşik sözcükteki birleşim noktası algısını bozar ve zamanla bunun birleşik sözcük olduğunu unutturur, birleşik sözcüklerin değeri ve üretilmesi gelecekte bilinmez olabilir.
