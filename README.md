@@ -336,6 +336,18 @@ belge.split(nokim)
      .join("");
 ```
 
+## Özel Durumlar
+Buraya kadar anlatılan çözüm, bazı yabancı kökenli sözcükler ve yabancı kökenli sözcüklerin bulunduğu
+bazı birleşik sözcüklerde doğru çalışmamaktadır (Vanspor, Demirspor, şokokrem, popstar, elektrik, vs).
+Bu durumları kapsayacak şekilde çözümü revize etmek harf analizinden çıkıp sözcük analizine yönelmeye
+sebep olacağından algoritmayı karmaşıklaştırır. Ana yoldan çıkmadan bir kısayol (kestirme) çözüme
+entegre edilebilir. Böyle sözcüklerde bir kılavuz nokta tespit edip iki farklı sözcük varmış gibi
+hecelemeye başlamak sorunu ortadan kaldırmaktadır (Van·spor, Demir·spor, şoko·krem, elek·tronik, vs).
+
+_Borçlanma_, _gençlik_, _somurtkan_, _farklılık_ gibi sözcüklerin hecelenmesini sağlayan
+10. kural _kontrol_, _santral_, _kangren_ gibi batı kökenli bazı sözcüklere de uyup hatalı 
+hecelenmelerine sebep olmaktadır. Böyle sözcükler bu listeye eklenip doğru hecelenmeleri
+sağlanabilir.
 
 
 [^1]: Bu anlatım [2016’da yapılmış bir çalışmaya](https://github.com/alperali/jsders/blob/6fe279dcfe836bf6c98fd04a6403281414f4d57f/hecele.js) dayanmaktadır.

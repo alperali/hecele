@@ -14,7 +14,38 @@ const kurallar = [
   { ptn: /^[bcçdfgğhjklmnprsştvyz]{2}[aeiouöüıİ][bcçdfgğhjklmnprsştvyz]{2}($|[bcçdfgğhjklmnprsştvyz])/i, len: 5}          // 12.
 ];
 
+const ozl = [
+  /* Dikkat: bu liste alfabetik sırada olmalı */
+  { s: 'demirspor',    len: 5},
+  { s: 'dışişler',     len: 3},
+  { s: 'elektrik',     len: 4},
+  { s: 'elektronik',   len: 4},
+  { s: 'endüstri',     len: 5},
+  { s: 'içişler',      len: 2},
+  { s: 'kangren',      len: 3},
+  { s: 'kontrol',      len: 3},
+  { s: 'popstar',      len: 3},
+  { s: 'santral',      len: 3},
+  { s: 'şokokrem',     len: 4},
+  { s: 'trabzonspor',  len: 7},
+  { s: 'vanspor',      len: 3}
+];
+
 function hecele(szck, tire = SHY)
+{
+  let r;
+  for (const o of ozl) {
+    r = szck.slice(0, o.s.length).localeCompare(o.s, 'tr', {sensitivity: "base"});
+    if (r == 0)
+      return `${seslemle(szck.slice(0, o.len), tire)}${tire}${seslemle(szck.slice(o.len), tire)}`;
+    else if (r < 0)
+      break;
+  }
+
+  return seslemle(szck, tire);
+}
+
+function seslemle(szck, tire)
 {
   if (szck.length < 3)        // 1.
     return szck;
