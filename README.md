@@ -343,6 +343,7 @@ Bu durumları kapsayacak şekilde çözümü revize etmek harf analizinden çık
 sebep olacağından algoritmayı karmaşıklaştırır. Ana yoldan çıkmadan bir kısayol (kestirme) çözüme
 entegre edilebilir. Böyle sözcüklerde bir kılavuz nokta tespit edip iki farklı sözcük varmış gibi
 hecelemeye başlamak sorunu ortadan kaldırmaktadır (Van·spor, Demir·spor, şoko·krem, elek·tronik, vs).
+[➡️](https://github.com/alperali/hecele/blob/main/hecele.js#L17-L32)
 
 _Borçlanma_, _gençlik_, _somurtkan_, _farklılık_ gibi sözcüklerin hecelenmesini sağlayan
 10. kural _kontrol_, _santral_, _kangren_ gibi batı kökenli bazı sözcüklere de uyup hatalı 
