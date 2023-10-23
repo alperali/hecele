@@ -192,7 +192,7 @@ Kolaylık sağlaması için sözcükte noktalama imleri ve rakamlar olmadığı 
      </tr>
    </table>
 
-9. **Sözcük ünsüz-ünsüz-ünlü-ünsüz-ünlü olarak başıyorsa ilk hece 3 harftir.**
+9. **Sözcük ünsüz-ünsüz-ünlü-ünsüz-ünlü olarak başlıyorsa ilk hece 3 harftir.**
    
    <table role="table">
     <tr>
