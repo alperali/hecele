@@ -1,6 +1,6 @@
 const f = (e) => document.getElementById(e);
 import hecele from './hecele.js';
-const nokim = /([\s\u00AD\u2010,;:.'"’“”!?\/()-]+)/;
+const nokim = /([\s\u00AD\u2010,;:.'"’“”!?\/()&#-]+)/;
 
 f('gerial').addEventListener('click', () => {
     f('metin').value = f('metin').value.replace(/[\u00AD\u2010]/g, '');
@@ -11,7 +11,7 @@ f('clr').addEventListener('click', () => {
 });
 const k13 = /^([aeiouöüıİ])[\u00AD\u2010]|[\u00AD\u2010]([aeiouöüıİ])$/gi;
 f('hecele').addEventListener('click', () => {
-    f('metin').value = f('metin').value.split(nokim)
+    f('metin').value = f('metin').value.replace(/[âÂîÎûÛ]/g, translit()).split(nokim)
                                  .map((e) => {
                                     if (nokim.test(e)) return e;
                                     let v = hecele(e, f('hrd').checked ? hecele.HRD : hecele.SHY);
@@ -19,3 +19,15 @@ f('hecele').addEventListener('click', () => {
                                     })
                                  .join('');
 });
+
+function translit() {
+    const m = {
+      'â': 'a',
+      'Â': 'A',
+      'î': 'i',
+      'Î': 'İ',
+      'û': 'u',
+      'Û': 'U'
+    };
+    return (e => m[e]);
+  }

@@ -309,7 +309,7 @@ içerisine geri konulmalıdır (veya yeni bir belge oluşturulmalıdır). Bu iş
 Javascript bloğu şöyle olabilir:
 
 ```javascript
-const nokim = /([\s\u00AD\u2010,;:.'"’“”!?\/()-]+)/;  /* noktalama imleri örüntüsü */
+const nokim = /([\s\u00AD\u2010,;:.'"’“”!?\/()&#-]+)/;  /* noktalama imleri örüntüsü */
 belge.split(nokim)
      .map((e) => {
         if (nokim.test(e)) return e;
@@ -317,6 +317,7 @@ belge.split(nokim)
       })
      .join("");
 ```
+
 #### 13. kural
 > Ayırmada satır sonunda ve satır başında tek harf bırakılmaz[^4]
 
@@ -326,7 +327,7 @@ Bu kuralı uygulamak için hecelenmiş sözcüğün ilk ve son tirelerine bakıl
 öncesinde veya sonrasında tek bir ünlü varsa bu tire kaldırılır, böylece satır sonunda ayırma engellenir.
 
 ```javascript
-const nokim = /([\s\u00AD\u2010,;:.'"’“”!?\/()-]+)/;  /* noktalama imleri örüntüsü */
+const nokim = /([\s\u00AD\u2010,;:.'"’“”!?\/()&#-]+)/;  /* noktalama imleri örüntüsü */
 const k13 = /^([aeiouöüıİ])[\u00AD\u2010]|[\u00AD\u2010]([aeiouöüıİ])$/gi;  // 13.
 belge.split(nokim)
      .map((e) => {
@@ -334,6 +335,36 @@ belge.split(nokim)
         return hecele(e, hecele.SHY).replace(k13, '$1$2');
       })
      .join("");
+```
+
+#### Transliterasyon
+Türk alfabesinde olmamasına rağmen şapkalı harflerin bazen kullanıldığı görülmektedir.
+Bu harfler hecelemede (ayrıca harf sıralamasında) zorluk çıkarmaktadır, mevcut klavyelerde
+yerleri yoktur, kullanımı normatif değil keyfidir.
+Sorunun çözümü için hecelemeden önce belge üzerinde transliterasyon
+(şapkalı harflerin Türkçe karşılıkları ile değişimi) yapılır.
+
+```javascript
+const nokim = /([\s\u00AD\u2010,;:.'"’“”!?\/()&#-]+)/;  /* noktalama imleri örüntüsü */
+const k13 = /^([aeiouöüıİ])[\u00AD\u2010]|[\u00AD\u2010]([aeiouöüıİ])$/gi;  // 13.
+belge.replace(/[âÂîÎûÛ]/g, translit()).split(nokim)
+     .map((e) => {
+        if (nokim.test(e)) return e;
+        return hecele(e, hecele.SHY).replace(k13, '$1$2');
+      })
+     .join("");
+
+function translit() {
+  const m = {
+    'â': 'a',
+    'Â': 'A',
+    'î': 'i',
+    'Î': 'İ',
+    'û': 'u',
+    'Û': 'U'
+  };
+  return (e => m[e]);
+}
 ```
 
 ## Özel Durumlar
