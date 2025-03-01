@@ -371,7 +371,7 @@ function translit() {
 Bu heceleme çözümünün işlemci-yoğun (_cpu intensive_) olduğunu söyleyebiliriz.
 Kullanılan işlemcinin gücüne bağlı olmakla beraber, büyük metinlerde bu çözümü uygularken sayfa yüklemede takılma, hatta donma, gözlenebilir.
 Buna meydan vermemek için heceleme işlemini ayrı bir _thread_ (Web Worker) üzerinde yaptırmak uygun olacaktır.
-Örnek olarak bkz: https://github.com/alper/mevzuat
+Örnek olarak bkz: https://github.com/alperali/mevzuat
 
 ## Özel Durumlar
 Buraya kadar anlatılan çözüm, bazı yabancı kökenli sözcükler ve yabancı kökenli sözcüklerin bulunduğu
