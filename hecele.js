@@ -21,6 +21,7 @@ const ozl = [
   { s: 'elektrik',     len: 4},
   { s: 'elektronik',   len: 4},
   { s: 'endüstri',     len: 5},
+  { s: 'halkoy',       len: 4},
   { s: 'içişler',      len: 2},
   { s: 'kangren',      len: 3},
   { s: 'kontrol',      len: 3},
