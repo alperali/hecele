@@ -309,7 +309,7 @@ içerisine geri konulmalıdır (veya yeni bir belge oluşturulmalıdır). Bu iş
 Javascript bloğu şöyle olabilir:
 
 ```javascript
-const nokim = /([\s\u00AD\u2010,;:.'"’“”!?\/()&#-]+)/;  /* noktalama imleri örüntüsü */
+const nokim = /([\s\u00AD\u2010,;:.`'"’“”!?\/()&#–-]+)/;  /* noktalama imleri örüntüsü */
 belge.split(nokim)
      .map((e) => {
         if (nokim.test(e)) return e;
@@ -327,7 +327,7 @@ Bu kuralı uygulamak için hecelenmiş sözcüğün ilk ve son tirelerine bakıl
 öncesinde veya sonrasında tek bir ünlü varsa bu tire kaldırılır, böylece satır sonunda ayırma engellenir.
 
 ```javascript
-const nokim = /([\s\u00AD\u2010,;:.'"’“”!?\/()&#-]+)/;  /* noktalama imleri örüntüsü */
+const nokim = /([\s\u00AD\u2010,;:.`'"’“”!?\/()&#–-]+)/;  /* noktalama imleri örüntüsü */
 const k13 = /^([aeiouöüıİ])[\u00AD\u2010]|[\u00AD\u2010]([aeiouöüıİ])$/gi;  // 13.
 belge.split(nokim)
      .map((e) => {
@@ -345,7 +345,7 @@ Sorunun çözümü için hecelemeden önce belge üzerinde transliterasyon
 (şapkalı harflerin Türkçe karşılıkları ile değişimi) yapılır.
 
 ```javascript
-const nokim = /([\s\u00AD\u2010,;:.'"’“”!?\/()&#-]+)/;  /* noktalama imleri örüntüsü */
+const nokim = /([\s\u00AD\u2010,;:.`'"’“”!?\/()&#–-]+)/;  /* noktalama imleri örüntüsü */
 const k13 = /^([aeiouöüıİ])[\u00AD\u2010]|[\u00AD\u2010]([aeiouöüıİ])$/gi;  // 13.
 belge.replace(/[âÂîÎûÛ]/g, translit()).split(nokim)
      .map((e) => {
