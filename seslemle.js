@@ -1,6 +1,6 @@
 const f = (e) => document.getElementById(e);
 import hecele from './hecele.js';
-const nokim = /([\s\u00AD\u2010,;:.'"’“”!?\/()&#-]+)/;
+const nokim = /([\s\u00AD\u2010,;:.`'"’“”!?\/()&#–-]+)/;
 
 f('gerial').addEventListener('click', () => {
     f('metin').value = f('metin').value.replace(/[\u00AD\u2010]/g, '');
