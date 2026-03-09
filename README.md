@@ -12,8 +12,6 @@ Bu proje, sözlük veri tabanı gerektirmeyen, algoritmik bir heceleme yöntemin
 > Kendi girdiğiniz metinin hecelenişini görmek içindir. Bir sözcük veya
 > kısa metin girip `Hecele`ye tıklayın. Tireleri silmek için `Geri al`ı tıklayın.
 
-Bulduğunuz hataları alper.goplay@gmail.com adresine bildirin, veya Issues altında bir kayıt açın.
-
 ---
 
 ## Giriş
